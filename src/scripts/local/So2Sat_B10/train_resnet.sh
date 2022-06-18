@@ -1,0 +1,12 @@
+python -m torch.distributed.launch --nproc_per_node=1 so2sat_B10_resnet_train.py \
+--data_dir /mnt/d/codes/datasets/so2sat-lcz42/culture_10/ \
+--checkpoints_dir /mnt/d/codes/ssl4eo-review/src/checkpoints/so2sat/resnet/B10_rn18_10 \
+--backbone resnet18 \
+--bands B10 \
+--train_frac 0.1 \
+--batchsize 256 \
+--lr 0.005 \
+--schedule 80 \
+--epochs 100 \
+--num_workers 4 \
+--seed 42 \

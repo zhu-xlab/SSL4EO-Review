@@ -1,0 +1,16 @@
+python -m torch.distributed.launch --nproc_per_node=1 bigearthnet_B12_moco_FT_LC.py \
+--lmdb_dir /mnt/d/codes/datasets/BigEarthNet/dataload_op1_lmdb \
+--checkpoints_dir /mnt/d/codes/ssl4eo-review/src/checkpoints/bigearthnet/moco_ft/B12_FT_LC_moco_rn18_10 \
+--save_path /mnt/d/codes/ssl4eo-review/src/checkpoints/bigearthnet/moco_ft/B12_FT_LC_moco_rn18_10.pth.tar \
+--backbone resnet18 \
+--bands all \
+--train_frac 0.1 \
+--batchsize 256 \
+--lr 0.01 \
+--lr_last_layer 0.01 \
+--schedule 20 30 \
+--epochs 50 \
+--num_workers 8 \
+--seed 42 \
+--pretrained /mnt/d/codes/ssl4eo-review/src/checkpoints/bigearthnet/moco/B12_LC_rn18_checkpoint_0099_old.pth.tar \
+--resume /mnt/d/codes/ssl4eo-review/src/checkpoints/bigearthnet/moco_lc/B12_LC_moco_rn18_10/checkpoint_0049.pth.tar \
